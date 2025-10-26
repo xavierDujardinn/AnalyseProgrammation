@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.10.17)  25 OCT 2025 18:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2025/dev/Debian) (preloaded format=pdflatex 2025.10.17)  26 OCT 2025 12:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1098,7 +1098,7 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'french'.
- (./main.aux (./partie/1_introduction.aux))
+ (./main.aux (./partie/1_introduction.aux) (./partie/2_code_source.aux) (./partie/3_choix.aux) (./partie/4_tâches.aux) (./partie/5_conclusion.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 82.
@@ -1224,7 +1224,7 @@ Package tocbasic Info: setting babel extension for `lol' on input line 82.
 \openout6 = `main.nlo'.
 
 Package nomencl Info: Writing nomenclature file main.nlo on input line 104.
-<img/henallux.jpg, id=11, 177.66376pt x 204.765pt>
+<img/henallux.jpg, id=27, 177.66376pt x 204.765pt>
 File: img/henallux.jpg Graphic file (type jpg)
 <use img/henallux.jpg>
 Package pdftex.def Info: img/henallux.jpg  used on input line 105.
@@ -1295,33 +1295,113 @@ l.117 \include{partie/1_introduction}
 
 
 ]
+\openout2 = `partie/2_code_source.aux'.
 
-LaTeX Warning: Empty bibliography on input line 122.
+ (./partie/2_code_source.tex)
 
-(./main.aux (./partie/1_introduction.aux))
+File: img/henallux.jpg Graphic file (type jpg)
+<use img/henallux.jpg>
+Package pdftex.def Info: img/henallux.jpg  used on input line 120.
+(pdftex.def)             Requested size: 44.41582pt x 51.19112pt.
+
+Package fancyhdr Warning: \headheight is too small (45.52458pt): 
+(fancyhdr)                Make it at least 55.54115pt, for example:
+(fancyhdr)                \setlength{\headheight}{55.54115pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-10.01657pt}.
+
+[2
+
+
+
+]
+\openout2 = `partie/3_choix.aux'.
+
+ (./partie/3_choix.tex)
+
+File: img/henallux.jpg Graphic file (type jpg)
+<use img/henallux.jpg>
+Package pdftex.def Info: img/henallux.jpg  used on input line 123.
+(pdftex.def)             Requested size: 44.41582pt x 51.19112pt.
+
+Package fancyhdr Warning: \headheight is too small (45.52458pt): 
+(fancyhdr)                Make it at least 55.54115pt, for example:
+(fancyhdr)                \setlength{\headheight}{55.54115pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-10.01657pt}.
+
+[3
+
+
+
+]
+\openout2 = `partie/4_tâches.aux'.
+
+ (./partie/4_tâches.tex)
+
+File: img/henallux.jpg Graphic file (type jpg)
+<use img/henallux.jpg>
+Package pdftex.def Info: img/henallux.jpg  used on input line 126.
+(pdftex.def)             Requested size: 44.41582pt x 51.19112pt.
+
+Package fancyhdr Warning: \headheight is too small (45.52458pt): 
+(fancyhdr)                Make it at least 55.54115pt, for example:
+(fancyhdr)                \setlength{\headheight}{55.54115pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-10.01657pt}.
+
+[4
+
+
+
+]
+\openout2 = `partie/5_conclusion.aux'.
+
+ (./partie/5_conclusion.tex)
+
+File: img/henallux.jpg Graphic file (type jpg)
+<use img/henallux.jpg>
+Package pdftex.def Info: img/henallux.jpg  used on input line 129.
+(pdftex.def)             Requested size: 44.41582pt x 51.19112pt.
+
+Package fancyhdr Warning: \headheight is too small (45.52458pt): 
+(fancyhdr)                Make it at least 55.54115pt, for example:
+(fancyhdr)                \setlength{\headheight}{55.54115pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-10.01657pt}.
+
+[5
+
+
+
+]
+
+LaTeX Warning: Empty bibliography on input line 133.
+
+(./main.aux (./partie/1_introduction.aux) (./partie/2_code_source.aux) (./partie/3_choix.aux) (./partie/4_tâches.aux) (./partie/5_conclusion.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9814C2D956916ADB9290ECA4E25C967A;103.
+(rerunfilecheck)             Checksum: 2ED3EFEEC01AF4552BD5328ACACD90A2;603.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 43199 strings out of 473197
- 874213 string characters out of 5718604
- 1788950 words of memory out of 5000000
- 65835 multiletter control sequences out of 15000+600000
+ 43311 strings out of 473197
+ 877502 string characters out of 5718604
+ 1799498 words of memory out of 5000000
+ 65911 multiletter control sequences out of 15000+600000
  572487 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  125i,16n,121p,785b,1807s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/cm-super/sfbi1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on main.pdf (4 pages, 169114 bytes).
+Output written on main.pdf (8 pages, 175352 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 114 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
