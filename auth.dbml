@@ -8,30 +8,16 @@ Table roles {
 
 Table users {
   username       TEXT [pk] // PK plus métier que id
-  password_hash  TEXT [not null]
   role           TEXT [not null]
   status         TEXT
-  created_at     TEXT
-  updated_at     TEXT
 }
-
+ 
 Ref: users.role > roles.role
 
 Table roles_permissions {
   role        TEXT [not null]
   permission  TEXT [not null]
-  indexes { (role, permission) [unique] }
 }
 
 Ref: roles_permissions.role > roles.role
 
-Table audit_logs {
-  log_id      INTEGER [pk, increment] // reste utile pour séquence log
-  username    TEXT
-  action      TEXT [not null]
-  target_type TEXT
-  target_id   TEXT
-  ts          TEXT
-}
-
-Ref: audit_logs.username > users.username

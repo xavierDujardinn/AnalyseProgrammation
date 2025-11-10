@@ -7,7 +7,6 @@ Table parties {
   nom          TEXT
   seed         INTEGER
   statut       TEXT
-  params_globaux TEXT
   created_at   TEXT
   updated_at   TEXT
 }
@@ -21,7 +20,6 @@ Table joueurs {
   ordre_tour  INTEGER
   actif       INTEGER
   created_at  TEXT
-  indexes { (partie_id, joueur_id) [unique] }
 }
 
 Ref: joueurs.partie_id > parties.partie_id
@@ -215,7 +213,18 @@ Table sauvegardes {
   tour        INTEGER [not null]
   snapshot    TEXT [not null]
   created_at  TEXT
-  indexes { (partie_id, tour) [unique] }
 }
 
 Ref: sauvegardes.partie_id > parties.partie_id
+
+Table parametres_globaux {
+  param_id   INTEGER [pk, increment]
+  partie_id   INTEGER [not null]
+  map_width  INTEGER
+  map_height INTEGER
+  world_seed INTEGER
+  max_turns  INTEGER
+  starting_resources TEXT
+}
+
+REF: parametres_globaux.partie_id > parties.partie_id
