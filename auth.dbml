@@ -1,0 +1,23 @@
+Project {
+  database_type: "SQLite"
+}
+
+Table roles {
+  role TEXT [pk] // admin, mod, joueur...
+}
+
+Table users {
+  username       TEXT [pk] // PK plus métier que id
+  role           TEXT [not null]
+  status         TEXT
+}
+ 
+Ref: users.role > roles.role
+
+Table roles_permissions {
+  role        TEXT [not null]
+  permission  TEXT [not null]
+}
+
+Ref: roles_permissions.role > roles.role
+
