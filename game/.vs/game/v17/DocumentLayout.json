@@ -1,0 +1,211 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\view\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:view\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\service\\placeholder.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:service\\placeholder.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\model\\placeholder.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:model\\placeholder.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\dbaccess\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:dbaccess\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\controller\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:controller\\readme.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\view\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:view\\mainmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\locale\\localecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:locale\\localecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\view\\settingsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:view\\settingsmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\locale\\translations\\fr.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:locale\\translations\\fr.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\locale\\translations\\en.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:locale\\translations\\en.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|c:\\users\\xavie\\documents\\anaprogra\\game\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A6048B99-5E19-422D-97EC-8DAE75305BC5}|game.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 100,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{fbcae063-e2c0-4ab1-a516-996ea3dafb72}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "README.txt",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\View\\README.txt",
+              "RelativeDocumentMoniker": "View\\README.txt",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\View\\README.txt",
+              "RelativeToolTip": "View\\README.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-14T13:51:46.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "placeholder.txt",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Service\\placeholder.txt",
+              "RelativeDocumentMoniker": "Service\\placeholder.txt",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Service\\placeholder.txt",
+              "RelativeToolTip": "Service\\placeholder.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-14T13:50:25.518Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "placeholder.txt",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Model\\placeholder.txt",
+              "RelativeDocumentMoniker": "Model\\placeholder.txt",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Model\\placeholder.txt",
+              "RelativeToolTip": "Model\\placeholder.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-14T13:49:14.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "README.txt",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\DBAccess\\README.txt",
+              "RelativeDocumentMoniker": "DBAccess\\README.txt",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\DBAccess\\README.txt",
+              "RelativeToolTip": "DBAccess\\README.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-14T13:47:54.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "README.txt",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Controller\\README.txt",
+              "RelativeDocumentMoniker": "Controller\\README.txt",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Controller\\README.txt",
+              "RelativeToolTip": "Controller\\README.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2025-11-14T13:46:53.376Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SettingsMenu.cs",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\View\\SettingsMenu.cs",
+              "RelativeDocumentMoniker": "View\\SettingsMenu.cs",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\View\\SettingsMenu.cs",
+              "RelativeToolTip": "View\\SettingsMenu.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwAEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T12:41:07.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "en.json",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Locale\\Translations\\en.json",
+              "RelativeDocumentMoniker": "Locale\\Translations\\en.json",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Locale\\Translations\\en.json",
+              "RelativeToolTip": "Locale\\Translations\\en.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-14T12:18:45.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "fr.json",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Locale\\Translations\\fr.json",
+              "RelativeDocumentMoniker": "Locale\\Translations\\fr.json",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Locale\\Translations\\fr.json",
+              "RelativeToolTip": "Locale\\Translations\\fr.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-14T12:18:36.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LocaleController.cs",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Locale\\LocaleController.cs",
+              "RelativeDocumentMoniker": "Locale\\LocaleController.cs",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Locale\\LocaleController.cs",
+              "RelativeToolTip": "Locale\\LocaleController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T12:01:52.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainMenu.cs",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\View\\MainMenu.cs",
+              "RelativeDocumentMoniker": "View\\MainMenu.cs",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\View\\MainMenu.cs",
+              "RelativeToolTip": "View\\MainMenu.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAEAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T11:52:29.516Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\xavie\\Documents\\AnaProgra\\game\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-14T11:49:50.025Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

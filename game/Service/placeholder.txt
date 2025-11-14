@@ -1,0 +1,5 @@
+Dans la couche Service on va 
+
+- Réaliser les traitements plus complexes.
+- Faire des appels à d'éventuels services externes.
+- Faire les appels au pattern DAO de DBAccess.
