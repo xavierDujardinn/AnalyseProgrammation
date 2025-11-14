@@ -1,5 +1,0 @@
-Dans la couche Model on va 
-
-- Transposer les éléments issus de la DB en objets c#
-- Transposer les éléments issus du code vers la DB
-- Stocker les éléments utiles du jeu (batiments, population,..)
