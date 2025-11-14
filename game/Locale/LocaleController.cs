@@ -10,7 +10,8 @@ namespace game.Locale
 
     internal static class LocaleController
     {
-        public static LocaleEnum CurrentLocale { get; set; } = LocaleEnum.FR;
+        // La langue par défaut est le français
+        private static LocaleEnum CurrentLocale = LocaleEnum.FR;
 
         private static Dictionary<string, string> translations = new();
 
