@@ -1,4 +1,5 @@
-﻿using game.Locale;
+﻿using game.Controller;
+using game.Locale;
 using Spectre.Console;
 
 namespace game.View
@@ -6,11 +7,14 @@ namespace game.View
     internal class MainMenu
     {
         private SettingsMenu settingsMenu;
+        private GameMenu gameMenu;
         public MainMenu()
         {
             AnsiConsole.Clear();
             AnsiConsole.MarkupLine($"[green]{LocaleController.GetLocaleLabel("menu.welcome")}[/]");
+            
             settingsMenu = new SettingsMenu(this);
+            gameMenu = new GameMenu(this);
         }
 
         public void ShowMainMenu()
@@ -18,7 +22,7 @@ namespace game.View
             AnsiConsole.Clear();
             var menuActions = new Dictionary<string, Action>
             {
-                { LocaleController.GetLocaleLabel("menu.start"), () => AnsiConsole.MarkupLine("[yellow]Starting a new game...[/]") },
+                { LocaleController.GetLocaleLabel("menu.start"), gameMenu.StartGame },
                 { LocaleController.GetLocaleLabel("menu.load"), () => AnsiConsole.MarkupLine("[yellow]Loading saved game...[/]") },
                 { LocaleController.GetLocaleLabel("menu.settings"), settingsMenu.ShowSettingsMenu },
                 { LocaleController.GetLocaleLabel("menu.exit"), () => { AnsiConsole.MarkupLine($"[red]{LocaleController.GetLocaleLabel("goodbye")}[/]"); Environment.Exit(0); } }
