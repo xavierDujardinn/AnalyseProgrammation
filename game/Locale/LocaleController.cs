@@ -41,7 +41,7 @@ namespace game.Locale
                 return value;
 
             // Si la clé n'existe pas on renvoie la clé pour debug
-            return $"[{key}]";
+            return $"{key}";
         }
     }
 }

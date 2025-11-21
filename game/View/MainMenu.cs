@@ -22,7 +22,12 @@ namespace game.View
             AnsiConsole.Clear();
             var menuActions = new Dictionary<string, Action>
             {
-                { LocaleController.GetLocaleLabel("menu.start"), gameMenu.StartGame },
+                { LocaleController.GetLocaleLabel("menu.start"), () => 
+                    {
+                        AnsiConsole.Clear();
+                        gameMenu.CreateGame(); 
+                    } 
+                },
                 { LocaleController.GetLocaleLabel("menu.load"), () => AnsiConsole.MarkupLine("[yellow]Loading saved game...[/]") },
                 { LocaleController.GetLocaleLabel("menu.settings"), settingsMenu.ShowSettingsMenu },
                 { LocaleController.GetLocaleLabel("menu.exit"), () => { AnsiConsole.MarkupLine($"[red]{LocaleController.GetLocaleLabel("goodbye")}[/]"); Environment.Exit(0); } }

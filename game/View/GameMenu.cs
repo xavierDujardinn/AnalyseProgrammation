@@ -1,4 +1,5 @@
 ﻿using game.Controller;
+using game.GamePackage;
 using Spectre.Console;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,14 @@ namespace game.View
             gameController.OnNewRoundStarted += DisplayRoundMenu;
         }
 
-        private void DisplayRoundMenu(int roundNumber)
+        private void DisplayRoundMenu()
         {
-            AnsiConsole.Clear();
-            AnsiConsole.MarkupLine($"[blue]Début du tour n° {roundNumber}[/]");
+            AnsiConsole.MarkupLine($"[blue]Tour n° {gameController.CurrentRoundNumber}[/]");
 
             var roundActions = new Dictionary<string, Action>
             {
                 { "Continuer", () => {  } },
+                { "Afficher le tableau", ShowGameTab},
                 { "Stop", () =>
                     {
                         gameController.EndGame();
@@ -43,10 +44,28 @@ namespace game.View
 
             roundActions[choice].Invoke();
         }
-        public void StartGame()
+        public void CreateGame()
         {
             AnsiConsole.MarkupLine("[yellow]Starting a new game...[/]");
-            gameController.StartGame();
+            gameController.CreateGame();
+        }
+
+        public void ShowGameTab()
+        {
+            Tab tab = gameController.GameTab;
+            Cell[,] cells = tab.Cells;
+            for (int y = 0; y < cells.GetLength(1); y++)
+            {
+                string line = "";
+
+                for (int x = 0; x < cells.GetLength(0); x++)
+                {
+                    line += $"[yellow]{cells[x, y]}[/] ";
+                }
+
+                AnsiConsole.MarkupLine(line);
+            }
+            DisplayRoundMenu();
         }
     }
 }
