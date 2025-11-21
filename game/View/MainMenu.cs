@@ -7,6 +7,7 @@ namespace game.View
     internal class MainMenu
     {
         private SettingsMenu settingsMenu;
+        private GameConfigMenu gameConfigMenu;
         private GameMenu gameMenu;
         public MainMenu()
         {
@@ -15,6 +16,7 @@ namespace game.View
             
             settingsMenu = new SettingsMenu(this);
             gameMenu = new GameMenu(this);
+            gameConfigMenu = new GameConfigMenu(this, gameMenu);
         }
 
         public void ShowMainMenu()
@@ -25,7 +27,7 @@ namespace game.View
                 { LocaleController.GetLocaleLabel("menu.start"), () => 
                     {
                         AnsiConsole.Clear();
-                        gameMenu.CreateGame(); 
+                        gameConfigMenu.ShowGameConfigMenu(); 
                     } 
                 },
                 { LocaleController.GetLocaleLabel("menu.load"), () => AnsiConsole.MarkupLine("[yellow]Loading saved game...[/]") },
