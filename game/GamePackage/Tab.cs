@@ -8,8 +8,8 @@ namespace game.GamePackage
 {
     internal class Tab
     {
-        // For now the tab should always be a square, we might want to edit this later
-        private static int DEFAULT_SIZE = 16; 
+        // For now, the tab should always be a square, we might want to edit this later
+        public static readonly int DEFAULT_SIZE = 16; 
         private int size;
 
         // Two dimension tab

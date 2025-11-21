@@ -23,9 +23,9 @@ namespace game.Controller
             rounds = new List<Round>();
         }
 
-        public void CreateGame()
+        public void CreateGame(int tabSize)
         {
-            GameTab = new Tab(20);
+            GameTab = new Tab(tabSize);
             StartGame();
         }
         public void StartGame()

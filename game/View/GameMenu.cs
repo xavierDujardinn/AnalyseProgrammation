@@ -9,18 +9,18 @@ namespace game.View
     internal class GameMenu
     {
         private MainMenu mainMenu;
-        private GameController gameController;
+        public GameController GameController { get; private set; }
 
         public GameMenu(MainMenu mainMenu)
         {
             this.mainMenu = mainMenu;
-            gameController = new GameController();
-            gameController.OnNewRoundStarted += DisplayRoundMenu;
+            GameController = new GameController();
+            GameController.OnNewRoundStarted += DisplayRoundMenu;
         }
 
         private void DisplayRoundMenu()
         {
-            AnsiConsole.MarkupLine($"[blue]Tour n° {gameController.CurrentRoundNumber}[/]");
+            AnsiConsole.MarkupLine($"[blue]Tour n° {GameController.CurrentRoundNumber}[/]");
 
             var roundActions = new Dictionary<string, Action>
             {
@@ -28,7 +28,7 @@ namespace game.View
                 { "Afficher le tableau", ShowGameTab},
                 { "Stop", () =>
                     {
-                        gameController.EndGame();
+                        GameController.EndGame();
                         AnsiConsole.MarkupLine("[red]Le jeu est terminé. Retour au menu principal.[/]");
                         mainMenu.ShowMainMenu();
                     }
@@ -44,15 +44,9 @@ namespace game.View
 
             roundActions[choice].Invoke();
         }
-        public void CreateGame()
-        {
-            AnsiConsole.MarkupLine("[yellow]Starting a new game...[/]");
-            gameController.CreateGame();
-        }
-
         public void ShowGameTab()
         {
-            Tab tab = gameController.GameTab;
+            Tab tab = GameController.GameTab;
             Cell[,] cells = tab.Cells;
             for (int y = 0; y < cells.GetLength(1); y++)
             {
