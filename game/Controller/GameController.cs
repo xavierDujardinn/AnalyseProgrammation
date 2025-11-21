@@ -10,18 +10,26 @@ namespace game.Controller
     internal class GameController
     {
         private List<Round> rounds;
-        private int currentRoundNumber;
+        public int CurrentRoundNumber { get; private set; }
+        public Tab GameTab { get; private set; }
+
         public bool Playing { get; set; } = false;
 
-        public event Action<int>? OnNewRoundStarted;
+        public event Action OnNewRoundStarted;
 
+        // J'ignore le warning pour le moment
         public GameController()
         {
             rounds = new List<Round>();
         }
+
+        public void CreateGame()
+        {
+            GameTab = new Tab(20);
+            StartGame();
+        }
         public void StartGame()
         {
-            Console.WriteLine("The game has started !");
             Playing = true;
             RunGame();
         }
@@ -31,18 +39,17 @@ namespace game.Controller
             while (Playing)
             {
                 Round newRound = new Round();
-                currentRoundNumber = newRound.GetNumber();
+                CurrentRoundNumber = newRound.GetNumber();
                 rounds.Add(newRound);
 
-                OnNewRoundStarted?.Invoke(currentRoundNumber);
+                OnNewRoundStarted?.Invoke();
 
-                if (currentRoundNumber >= 10)
+                if (CurrentRoundNumber >= 10)
                 {
                     EndGame();
                 }
             }
         }
-
         public void EndGame()
         {
             Playing = false;
