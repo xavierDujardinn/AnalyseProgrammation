@@ -16,7 +16,7 @@ namespace game.View
         private GameController gameController;
 
         // Set default tabSize to default size
-        private int tabSize = Tab.DEFAULT_SIZE; 
+        private int tabSize = Tab.DEFAULT_Size; 
 
         public GameConfigMenu(MainMenu mainMenu, GameMenu gameMenu)
         {
@@ -29,7 +29,7 @@ namespace game.View
         {
             // This function is called when the user goes back to the main menu,
             // don't forget to add the next config parameters.
-            tabSize = Tab.DEFAULT_SIZE;
+            tabSize = Tab.DEFAULT_Size;
         }
 
         public void EditSizeParameter()

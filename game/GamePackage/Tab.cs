@@ -9,8 +9,8 @@ namespace game.GamePackage
     internal class Tab
     {
         // For now, the tab should always be a square, we might want to edit this later
-        public static readonly int DEFAULT_SIZE = 16; 
-        private int size;
+        public static readonly int DEFAULT_Size = 16; 
+        public int Size { get; private set; }
 
         // Two dimension tab
         public Cell[,] Cells { get; private set; }
@@ -19,16 +19,16 @@ namespace game.GamePackage
         {
             if (size > 4)
             {
-                this.size = size;
+                Size = size;
             }
             else
             {
-                this.size = DEFAULT_SIZE;
+                Size = DEFAULT_Size;
             }
-            Cells = new Cell[this.size, this.size];
+            Cells = new Cell[Size, Size];
             GenerateTab();
         }
-        public Tab() : this(DEFAULT_SIZE)
+        public Tab() : this(DEFAULT_Size)
         {
         }
 
@@ -42,6 +42,41 @@ namespace game.GamePackage
                     Cells[i,j] = new Cell();
                 }
             }
+        }
+
+
+        public bool PlaceBuilding(int x, int y, Building building)
+        {
+            if (x < 0 || x >= Size || y <0 || y >= Size)
+            {  
+                return false;
+            }
+
+            if (Cells[x, y].Content is EmptyCell)
+            {
+                Cells[x, y].Content = building;
+                return true;
+            }
+
+            return false;
+        }
+
+        public void RemoveBuilding(int x, int y)
+        {
+            if (x>= 0 && x < Size && y >= 0 && y < Size)
+            {
+                Cells[x, y].Content = new EmptyCell();
+            }
+
+        }
+
+        public CellContent? GetCellContent(int x, int y)
+        {
+            if (x >= 0 && x < Size && y >= 0 && y < Size)
+            {
+                return Cells[x, y].Content;
+            }
+            return null;
         }
     }
 }
