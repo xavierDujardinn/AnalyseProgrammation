@@ -67,6 +67,42 @@ namespace game.View
             }
             
         }
+        public void AddPlayer()
+        {
+            int ctr = AnsiConsole.Prompt(new TextPrompt<int>("Combien de joueurs voulez vous ajouter ? :"));
+            int cnt = 0;
+            while (cnt <= ctr)
+            {
+                string player = AnsiConsole.Prompt(
+                new TextPrompt<string>($"Ajouter un joueur, actuellement ({playerList.Count}) :"));
+                playerList.Add(player);
+                Console.WriteLine(playerList.Last());
+                cnt += 1;
+            }
+            ShowGameConfigMenu();
+        }
+
+        public void DelPlayer() 
+        {
+            Console.WriteLine("Joueurs actuels :");
+            foreach(string i in playerList)
+            {
+                Console.WriteLine(i);
+            }
+            string player = AnsiConsole.Prompt(
+            new TextPrompt<string>("Supprimer un joueur :"));
+            playerList.Remove(player);
+            string option = AnsiConsole.Prompt(new TextPrompt<string>("Voulez vous supprimez un autre joueur ? (oui/non)"));
+            if(option == "oui")
+            {
+                DelPlayer();
+            }
+            else if(option == "non")
+            {
+                ShowGameConfigMenu();
+            }
+            
+        }
 
         public void EditSizeParameter()
         {
