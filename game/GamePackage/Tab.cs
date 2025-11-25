@@ -9,7 +9,7 @@ namespace game.GamePackage
     internal class Tab
     {
         // For now, the tab should always be a square, we might want to edit this later
-        public static readonly int DEFAULT_Size = 16; 
+        public static readonly int DEFAULT_SIZE = 16; 
         public int Size { get; private set; }
 
         // Two dimension tab
@@ -23,12 +23,12 @@ namespace game.GamePackage
             }
             else
             {
-                Size = DEFAULT_Size;
+                Size = DEFAULT_SIZE;
             }
             Cells = new Cell[Size, Size];
             GenerateTab();
         }
-        public Tab() : this(DEFAULT_Size)
+        public Tab() : this(DEFAULT_SIZE)
         {
         }
 

@@ -3,8 +3,6 @@ using game.Locale;
 using game.View;
 using System.Text;
 
-Console.WriteLine("Starting the game...");
-
 // Le language par défaut est le français
 LocaleController.LoadLocale(LocaleEnum.FR);
 
