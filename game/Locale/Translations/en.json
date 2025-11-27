@@ -12,5 +12,31 @@
   "settings.language": "Language",
   "settings.language.title": "Choose your language",
   "language.french": "French",
-  "language.english": "English"
+  "language.english": "English",
+
+  "menu.load.message": "Loading saved game...",
+  "menu.exit": "Exit",
+  "goodbye": "Goodbye!",
+  "menu.title": "Main menu",
+
+  "round.title": "Round #{0}",
+  "round.continue": "Continue",
+  "round.showTab": "Show board",
+  "round.placeBuilding": "Place a building",
+  "round.removeBuilding": "Remove a building",
+  "round.stop": "Stop",
+  "round.prompt": "What would you like to do?",
+  "round.endgame.message": "Game over. Returning to main menu.",
+
+  "prompt.coordX": "Enter X coordinate (0 - {0}):",
+  "prompt.coordY": "Enter Y coordinate (0 - {0}):",
+  "validation.coord.range": "Please enter a valid number between 0 and {0}.",
+
+  "placebuilding.header": "Place a building (#)",
+  "placebuilding.success": "Building placed at ({0}, {1}).",
+  "placebuilding.failure": "Unable to place building at ({0}, {1}). Space occupied.",
+
+  "removebuilding.header": "Remove a building (#)",
+  "removebuilding.success": "Building removed at ({0}, {1}).",
+  "removebuilding.failure": "Unable to remove building at ({0}, {1}). Emplacement occupé."
 }

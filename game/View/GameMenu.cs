@@ -1,5 +1,6 @@
 ﻿using game.Controller;
 using game.GamePackage;
+using game.Locale;
 using Spectre.Console;
 using System;
 using System.Collections.Generic;
@@ -20,18 +21,20 @@ namespace game.View
 
         private void DisplayRoundMenu()
         {
-            AnsiConsole.MarkupLine($"[blue]Tour n° {GameController.CurrentRoundNumber}[/]");
+            // Format du titre du tour via la locale
+            var roundTitleTemplate = LocaleController.GetLocaleLabel("round.title");
+            AnsiConsole.MarkupLine($"[blue]{string.Format(roundTitleTemplate, GameController.CurrentRoundNumber)}[/]");
 
             var roundActions = new Dictionary<string, Action>
             {
-                { "Continuer", () => {  } },
-                { "Afficher le tableau", ShowGameTab},
-                { "Placer un bâtiment", PlaceBuilding },
-                { "Supprimer un bâtiment", RemoveBuilding },
-                { "Stop", () =>
+                { LocaleController.GetLocaleLabel("round.continue"), () => {  } },
+                { LocaleController.GetLocaleLabel("round.showTab"), ShowGameTab},
+                { LocaleController.GetLocaleLabel("round.placeBuilding"), PlaceBuilding },
+                { LocaleController.GetLocaleLabel("round.removeBuilding"), RemoveBuilding },
+                { LocaleController.GetLocaleLabel("round.stop"), () =>
                     {
                         GameController.EndGame();
-                        AnsiConsole.MarkupLine("[red]Le jeu est terminé. Retour au menu principal.[/]");
+                        AnsiConsole.MarkupLine($"[red]{LocaleController.GetLocaleLabel("round.endgame.message")}[/]");
                         mainMenu.ShowMainMenu();
                     }
                 }
@@ -39,7 +42,7 @@ namespace game.View
 
             var choice = AnsiConsole.Prompt(
                 new SelectionPrompt<string>()
-                    .Title("Que voulez-vous faire ?")
+                    .Title(LocaleController.GetLocaleLabel("round.prompt"))
                     .PageSize(5)
                     .AddChoices(roundActions.Keys)
             );
@@ -49,31 +52,31 @@ namespace game.View
         private void PlaceBuilding()
         {
             AnsiConsole.Clear();
-            AnsiConsole.MarkupLine("[yellow]Placer un bâtiment (#)[/]\n");
+            AnsiConsole.MarkupLine($"[yellow]{LocaleController.GetLocaleLabel("placebuilding.header")}[/]\n");
 
             int maxCoord = GameController.GameTab.Size - 1;
 
             int x = AnsiConsole.Prompt(
-                new TextPrompt<int>($"Entrez la coordonnée X (0 - {maxCoord}):")
+                new TextPrompt<int>(string.Format(LocaleController.GetLocaleLabel("prompt.coordX"), maxCoord))
                     .Validate(n => n>= 0 && n <= maxCoord)
-                    .ValidationErrorMessage($"[red]Veuillez entrer un nombre valide entre 0 et {maxCoord}.[/]")
+                    .ValidationErrorMessage($"[red]{string.Format(LocaleController.GetLocaleLabel("validation.coord.range"), maxCoord)}[/]")
             );
 
             int y = AnsiConsole.Prompt(
-                new TextPrompt<int>($"Entrez la coordonnée Y (0 - {maxCoord}):")
+                new TextPrompt<int>(string.Format(LocaleController.GetLocaleLabel("prompt.coordY"), maxCoord))
                     .Validate(n => n >= 0 && n <= maxCoord)
-                    .ValidationErrorMessage($"[red]Veuillez entrer un nombre valide entre 0 et {maxCoord}.[/]")
+                    .ValidationErrorMessage($"[red]{string.Format(LocaleController.GetLocaleLabel("validation.coord.range"), maxCoord)}[/]")
             );
 
             Building building = new BaseBuilding();
 
             if (GameController.GameTab.PlaceBuilding(x, y, building))
             {
-                AnsiConsole.MarkupLine($"[green]Bâtiment placé en ({x}, {y}).[/]");
+                AnsiConsole.MarkupLine($"[green]{string.Format(LocaleController.GetLocaleLabel("placebuilding.success"), x, y)}[/]");
             }
             else
             {
-                AnsiConsole.MarkupLine($"[red]Impossible de placer le bâtiment en ({x}, {y}). Emplacement occupé.[/]");
+                AnsiConsole.MarkupLine($"[red]{string.Format(LocaleController.GetLocaleLabel("placebuilding.failure"), x, y)}[/]");
             }
 
             ShowGameTab();
@@ -82,20 +85,20 @@ namespace game.View
         private void RemoveBuilding()
         {
             AnsiConsole.Clear();
-            AnsiConsole.MarkupLine("[yellow]Supprimer un bâtiment (X)[/]\n");
+            AnsiConsole.MarkupLine($"[yellow]{string.Format(LocaleController.GetLocaleLabel("removebuilding.header"))}[/]");
 
             int maxCoord = GameController.GameTab.Size - 1;
 
             int x = AnsiConsole.Prompt(
-                new TextPrompt<int>($"Entrez la coordonnée X (0 - {maxCoord}):")
+                new TextPrompt<int>(string.Format(LocaleController.GetLocaleLabel("prompt.coordX"), maxCoord))
                     .Validate(n => n >= 0 && n <= maxCoord)
-                    .ValidationErrorMessage($"[red]Veuillez entrer un nombre valide entre 0 et {maxCoord}.[/]")
+                    .ValidationErrorMessage($"[red]{string.Format(LocaleController.GetLocaleLabel("validation.coord.range"), maxCoord)}[/]")
             );
 
             int y = AnsiConsole.Prompt(
-                new TextPrompt<int>($"Entrez la coordonnée Y (0 - {maxCoord}):")
+                new TextPrompt<int>(string.Format(LocaleController.GetLocaleLabel("prompt.coordY"), maxCoord))
                     .Validate(n => n >= 0 && n <= maxCoord)
-                    .ValidationErrorMessage($"[red]Veuillez entrer un nombre valide entre 0 et {maxCoord}.[/]")
+                    .ValidationErrorMessage($"[red]{string.Format(LocaleController.GetLocaleLabel("validation.coord.range"), maxCoord)}[/]")
             );
 
             CellContent? content = GameController.GameTab.GetCellContent(x, y);
@@ -103,11 +106,11 @@ namespace game.View
             if (content is Building)
             {
                 GameController.GameTab.RemoveBuilding(x, y);
-                AnsiConsole.MarkupLine($"[green]Bâtiment supprimé en ({x}, {y}).[/]");
+                AnsiConsole.MarkupLine($"[green]{string.Format(LocaleController.GetLocaleLabel("removebuilding.success"), x, y)}[/]");
             }
             else
             {
-                AnsiConsole.MarkupLine($"[red]Aucun bâtiment à supprimer en ({x}, {y}).[/]");
+                AnsiConsole.MarkupLine($"[red]{string.Format(LocaleController.GetLocaleLabel("removebuilding.failure"), x, y)}[/]");
             }
             ShowGameTab();
         }

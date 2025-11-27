@@ -30,7 +30,7 @@ namespace game.View
                         gameConfigMenu.ShowGameConfigMenu(); 
                     } 
                 },
-                { LocaleController.GetLocaleLabel("menu.load"), () => AnsiConsole.MarkupLine("[yellow]Loading saved game...[/]") },
+                { LocaleController.GetLocaleLabel("menu.load"), () => AnsiConsole.MarkupLine($"[yellow]{LocaleController.GetLocaleLabel("menu.load.message")}[/]") },
                 { LocaleController.GetLocaleLabel("menu.settings"), settingsMenu.ShowSettingsMenu },
                 { LocaleController.GetLocaleLabel("menu.exit"), () => { AnsiConsole.MarkupLine($"[red]{LocaleController.GetLocaleLabel("goodbye")}[/]"); Environment.Exit(0); } }
             };
