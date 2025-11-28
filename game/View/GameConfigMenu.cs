@@ -99,7 +99,6 @@ namespace game.View
                 // Fixed elements
                 { "Continuer avec ces paramètres", () =>
                     {
-                        AnsiConsole.MarkupLine($"[yellow]Lancement d'une partie avec un tableau de taille {tabSize}[/]");
                         gameController.CreateGame(tabSize);
                     }
                 },

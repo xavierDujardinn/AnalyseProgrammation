@@ -1,4 +1,6 @@
-﻿using System;
+﻿using game.GamePackage.Buildings;
+using game.GamePackage.Ressources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,8 +46,9 @@ namespace game.GamePackage
             }
         }
 
+        #region building methods
 
-        public bool PlaceBuilding(int x, int y, Building building)
+        public bool PlaceBuilding(int x, int y, BaseBuilding building)
         {
             if (x < 0 || x >= Size || y <0 || y >= Size)
             {  
@@ -69,6 +72,7 @@ namespace game.GamePackage
             }
 
         }
+        #endregion
 
         public CellContent? GetCellContent(int x, int y)
         {
@@ -77,6 +81,28 @@ namespace game.GamePackage
                 return Cells[x, y].Content;
             }
             return null;
+        }
+
+        public Dictionary<string, int> GetAllRessourcesOnTab()
+        {
+            Dictionary<string, int> ressources = new Dictionary<string, int>();
+
+            foreach (Cell cell in Cells) 
+            { 
+                if (cell.Content is BaseBuilding building)
+                {
+                    if (ressources.ContainsKey(building.Ressource.Name))
+                    {
+                        ressources[building.Ressource.Name] += building.RessourceQuantity;
+                    }
+                    else
+                    {
+                        ressources.Add(building.Ressource.Name, building.RessourceQuantity);
+                    }
+                }
+            }
+
+            return ressources;
         }
     }
 }
