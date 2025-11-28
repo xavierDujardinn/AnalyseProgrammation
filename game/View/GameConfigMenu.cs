@@ -4,6 +4,7 @@ using Spectre.Console;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -24,48 +25,57 @@ namespace game.View
             this.gameMenu = gameMenu;
             gameController = this.gameMenu.GameController;
         }
-        List<string> playerList = new();
+        
         public void ResetConfigValues()
         {
             // This function is called when the user goes back to the main menu,
             // don't forget to add the next config parameters.
             tabSize = Tab.DEFAULT_SIZE;
+            gameController.Users.Clear();
         }
         public void AddPlayer()
         {
             int ctr = AnsiConsole.Prompt(new TextPrompt<int>("Combien de joueurs voulez vous ajouter ? :"));
             int cnt = 0;
-            while (cnt <= ctr)
+            while (cnt <= ctr-1)
             {
-                string player = AnsiConsole.Prompt(
-                new TextPrompt<string>($"Ajouter un joueur, actuellement ({playerList.Count}) :"));
-                playerList.Add(player);
-                AnsiConsole.MarkupLine(playerList.Last());
+                string playerName = AnsiConsole.Prompt(
+                new TextPrompt<string>($"Ajouter un joueur, actuellement ({gameController.Users.Count}) :"));
+                gameController.Users.Add(new User(playerName));
+                AnsiConsole.MarkupLine(gameController.Users.Last().ToString());
                 cnt ++;
             }
-            ShowGameConfigMenu();
+            ShowPlayerConfigMenu();
         }
 
         public void DelPlayer() 
         {
-            AnsiConsole.MarkupLine("Joueurs actuels :");
-            foreach(string i in playerList)
+            if (gameController.Users.Count > 0)
             {
-                AnsiConsole.MarkupLine(i);
+
+                AnsiConsole.MarkupLine("Joueurs actuels :");
+                foreach (User user in gameController.Users)
+                {
+                    AnsiConsole.MarkupLine(user.ToString());
+                }
+                string playerName = AnsiConsole.Prompt(
+                new TextPrompt<string>("Supprimer un joueur :"));
+                gameController.Users.RemoveAll(user => user.Name == playerName);
+                string option = AnsiConsole.Prompt(new TextPrompt<string>("Voulez vous supprimez un autre joueur ? (oui/non)"));
+                if (option == "oui")
+                {
+                    DelPlayer();
+                }
+                else if (option == "non")
+                {
+                    ShowPlayerConfigMenu();
+                }
             }
-            string player = AnsiConsole.Prompt(
-            new TextPrompt<string>("Supprimer un joueur :"));
-            playerList.Remove(player);
-            string option = AnsiConsole.Prompt(new TextPrompt<string>("Voulez vous supprimez un autre joueur ? (oui/non)"));
-            if(option == "oui")
+            else
             {
-                DelPlayer();
+                AnsiConsole.MarkupLine("[red]Il n'y a pas de joueur à éditer[/]");
+                ShowPlayerConfigMenu();
             }
-            else if(option == "non")
-            {
-                ShowGameConfigMenu();
-            }
-            
         }
 
         public void EditSizeParameter()
@@ -81,16 +91,19 @@ namespace game.View
         {
             var configActions = new Dictionary<string, Action>
             {
+                // Settings
                 { $"Éditer la taille du plateau : {tabSize}", EditSizeParameter },
-                { "Continuer avec ces paramètres", () => 
+                { "Liste des joueurs", ShowPlayerConfigMenu },
+
+
+                // Fixed elements
+                { "Continuer avec ces paramètres", () =>
                     {
                         AnsiConsole.MarkupLine($"[yellow]Lancement d'une partie avec un tableau de taille {tabSize}[/]");
                         gameController.CreateGame(tabSize);
-                    } 
+                    }
                 },
-                { "Ajouter des joueurs", AddPlayer },
-                { "Supprimer des joueurs", DelPlayer },
-                { "Retourner au menu", () => 
+                { "Retourner au menu", () =>
                     {
                         ResetConfigValues();
                         mainMenu.ShowMainMenu();
@@ -106,6 +119,46 @@ namespace game.View
             );
 
             configActions[choice].Invoke();
+        }
+
+        public void ShowPlayerList()
+        {
+            AnsiConsole.Clear();
+            string userList = $"[blue] Liste des joueurs ({gameController.Users.Count}) :[/]";
+
+            if (gameController.Users.Count > 0)
+            {
+                foreach (User user in gameController.Users)
+                {
+                    userList += $"\n- {user.Name}";
+                }
+            }
+            else
+            {
+                userList += "\n La liste est vide...";
+            }
+
+            AnsiConsole.MarkupLine(userList + "\n");
+        }
+        private void ShowPlayerConfigMenu()
+        {
+            ShowPlayerList();
+
+            var configPlayerActions = new Dictionary<string, Action>
+            {
+                { "Ajouter des joueurs", AddPlayer },
+                { "Supprimer des joueurs", DelPlayer },
+                { "Retourner au menu", ShowGameConfigMenu }
+            };
+
+            var choice = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title("Édition des joueurs :")
+                    .PageSize(5)
+                    .AddChoices(configPlayerActions.Keys)
+            );
+
+            configPlayerActions[choice].Invoke();
         }
     }
 }

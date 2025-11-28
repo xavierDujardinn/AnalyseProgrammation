@@ -2,11 +2,9 @@
   "greeting": "Hello",
   "goodbye" :  "Goodbye !",
   "menu.welcome": "Welcome to the game !",
-  "menu.title": "What do you want to do ?",
   "menu.start": "Start game",
   "menu.load": "Load game",
   "menu.settings": "Settings",
-  "menu.exit": "Exit",
   "menu.back": "Back",
   "settings.title": "Settings",
   "settings.language": "Language",
@@ -16,7 +14,6 @@
 
   "menu.load.message": "Loading saved game...",
   "menu.exit": "Exit",
-  "goodbye": "Goodbye!",
   "menu.title": "Main menu",
 
   "round.title": "Round #{0}",
@@ -38,5 +35,5 @@
 
   "removebuilding.header": "Remove a building (#)",
   "removebuilding.success": "Building removed at ({0}, {1}).",
-  "removebuilding.failure": "Unable to remove building at ({0}, {1}). Emplacement occupé."
+  "removebuilding.failure": "Unable to remove building at ({0}, {1}). Emplacement occupï¿½."
 }
