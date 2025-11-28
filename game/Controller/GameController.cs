@@ -10,6 +10,7 @@ namespace game.Controller
     internal class GameController
     {
         private List<Round> rounds;
+        public List<User> Users;
         public int CurrentRoundNumber { get; private set; }
         public Tab GameTab { get; private set; }
 
@@ -21,18 +22,29 @@ namespace game.Controller
         public GameController()
         {
             rounds = new List<Round>();
+            Users = new List<User>();
         }
 
+        #region base methods
         public void CreateGame(int tabSize)
         {
             GameTab = new Tab(tabSize);
             StartGame();
         }
+
+        public void EndGame()
+        {
+            Playing = false;
+            rounds.Clear();
+            Round.SetNbRounds(0);
+        }
+
         public void StartGame()
         {
             Playing = true;
             RunGame();
         }
+        #endregion
 
         public void RunGame()
         {
@@ -49,12 +61,6 @@ namespace game.Controller
                     EndGame();
                 }
             }
-        }
-        public void EndGame()
-        {
-            Playing = false;
-            rounds.Clear();
-            Round.SetNbRounds(0);
         }
     }
 }
