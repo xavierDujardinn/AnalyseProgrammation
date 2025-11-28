@@ -9,6 +9,6 @@ namespace game.GamePackage
     internal abstract class CellContent
     {
         // Default value for debugging is '?'
-        public virtual char Icon { get; internal set; } = '?';
+        public char Icon { get; protected set; } = '?';
     }
 }

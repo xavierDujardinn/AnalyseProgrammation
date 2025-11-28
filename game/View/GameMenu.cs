@@ -1,5 +1,6 @@
 ﻿using game.Controller;
 using game.GamePackage;
+using game.GamePackage.Buildings;
 using game.Locale;
 using Spectre.Console;
 using System;
@@ -23,7 +24,9 @@ namespace game.View
         {
             // Format du titre du tour via la locale
             var roundTitleTemplate = LocaleController.GetLocaleLabel("round.title");
-            AnsiConsole.MarkupLine($"[blue]{string.Format(roundTitleTemplate, GameController.CurrentRoundNumber)}[/]");
+            AnsiConsole.MarkupLine($"\n[blue]{string.Format(roundTitleTemplate, GameController.CurrentRoundNumber)}[/]\n");
+
+            AnsiConsole.MarkupLine(GetRessourcesInfos());
 
             var roundActions = new Dictionary<string, Action>
             {
@@ -49,9 +52,36 @@ namespace game.View
 
             roundActions[choice].Invoke();
         }
+
+        #region building methods
+        private BaseBuilding SelectBuilding()
+        {
+            BaseBuilding building = null;
+
+            var buildingActions = new Dictionary<string, Action>
+            {
+                { "Iron mine", () => { building = new IronMine(); } },
+                { "Gold mine", () => { building = new GoldMine(); } },
+            };
+
+            var choice = AnsiConsole.Prompt(
+                new SelectionPrompt<string>()
+                    .Title(LocaleController.GetLocaleLabel("Choississez le type de batiment"))
+                    .PageSize(5)
+                    .AddChoices(buildingActions.Keys)
+            );
+
+            buildingActions[choice].Invoke();
+
+            return building;
+        }
+
         private void PlaceBuilding()
         {
             AnsiConsole.Clear();
+
+            BaseBuilding building = SelectBuilding();
+
             AnsiConsole.MarkupLine($"[yellow]{LocaleController.GetLocaleLabel("placebuilding.header")}[/]\n");
 
             int maxCoord = GameController.GameTab.Size - 1;
@@ -68,7 +98,7 @@ namespace game.View
                     .ValidationErrorMessage($"[red]{string.Format(LocaleController.GetLocaleLabel("validation.coord.range"), maxCoord)}[/]")
             );
 
-            Building building = new BaseBuilding();
+            AnsiConsole.Clear();
 
             if (GameController.GameTab.PlaceBuilding(x, y, building))
             {
@@ -78,8 +108,7 @@ namespace game.View
             {
                 AnsiConsole.MarkupLine($"[red]{string.Format(LocaleController.GetLocaleLabel("placebuilding.failure"), x, y)}[/]");
             }
-
-            ShowGameTab();
+            DisplayRoundMenu();
         }
 
         private void RemoveBuilding()
@@ -103,7 +132,7 @@ namespace game.View
 
             CellContent? content = GameController.GameTab.GetCellContent(x, y);
 
-            if (content is Building)
+            if (content is BaseBuilding)
             {
                 GameController.GameTab.RemoveBuilding(x, y);
                 AnsiConsole.MarkupLine($"[green]{string.Format(LocaleController.GetLocaleLabel("removebuilding.success"), x, y)}[/]");
@@ -112,8 +141,10 @@ namespace game.View
             {
                 AnsiConsole.MarkupLine($"[red]{string.Format(LocaleController.GetLocaleLabel("removebuilding.failure"), x, y)}[/]");
             }
-            ShowGameTab();
+            DisplayRoundMenu();
         }
+        #endregion
+
         public void ShowGameTab()
         {
             Tab tab = GameController.GameTab;
@@ -130,6 +161,27 @@ namespace game.View
                 AnsiConsole.MarkupLine(line);
             }
             DisplayRoundMenu();
+        }
+
+        public string GetRessourcesInfos()
+        {
+            string infos = "[yellow]|----------------------------------------------------------------------------\n|\t";
+
+            Dictionary<string, int> ressources = GameController.GameTab.GetAllRessourcesOnTab();
+
+            if (ressources.Count > 0)
+            {
+                foreach (string ressource in ressources.Keys)
+                {
+                    infos += $"{ressource} : {ressources[ressource]} \t";
+                }
+            }
+            else
+            {
+                infos += "Aucune ressource";
+            }
+
+                return infos + "\n|----------------------------------------------------------------------------[/]\n";
         }
     }
 }

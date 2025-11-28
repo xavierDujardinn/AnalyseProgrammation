@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace game.GamePackage
+namespace game.GamePackage.Ressources
 {
-    internal class BaseBuilding : Building
+    internal class Gold : BaseRessource
     {
-        public BaseBuilding() : base("Batiment", '#')
+        public Gold() : base("Gold")
         {
         }
     }
