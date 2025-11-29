@@ -1,0 +1,21 @@
+Pour créer les db:
+
+installer "sqlite3"
+
+sudo apt update && sudo apt install sqlite3
+
+lancer le shell sqlite3 pour la db:
+
+exemple : sqlite3 auth.db
+
+dans le shell, il faut lire le fichier sql:
+
+.read auth.sql
+
+Pour vérifier si c'est bien écrit :
+
+.schema
+
+insérer des values:
+
+INSERT NTO roles(role) VALUES ('admin'), ('modérateur'), ('joueur');
