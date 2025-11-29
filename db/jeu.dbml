@@ -1,0 +1,234 @@
+Project {
+  database_type: "SQLite"
+}
+
+Table parties {
+  partie_id    INTEGER [pk, increment]
+  nom          TEXT
+  seed         INTEGER
+  statut       TEXT
+  created_at   TEXT
+  updated_at   TEXT
+}
+
+Table joueurs {
+  joueur_id   INTEGER [pk, increment]
+  partie_id   INTEGER [not null]
+  user_id     INTEGER
+  pseudo      TEXT
+  couleur     TEXT
+  ordre_tour  INTEGER
+  actif       INTEGER
+  created_at  TEXT
+}
+
+Ref: joueurs.partie_id > parties.partie_id
+
+Table ressources_ref {
+  ressource_id INTEGER [pk, increment]
+  code         TEXT [unique, not null]
+  libelle      TEXT
+  unite        TEXT
+}
+
+Table joueurs_ressources {
+  jr_id          INTEGER [pk, increment]
+  partie_id      INTEGER [not null]
+  joueur_id      INTEGER [not null]
+  ressource_id   INTEGER [not null]
+  qty            REAL
+  cap_max        REAL
+  indexes { (partie_id, joueur_id, ressource_id) [unique] }
+}
+
+Ref: joueurs_ressources.partie_id > parties.partie_id
+Ref: joueurs_ressources.joueur_id > joueurs.joueur_id
+Ref: joueurs_ressources.ressource_id > ressources_ref.ressource_id
+
+Table plateau_etats {
+  plateau_id   INTEGER [pk, increment]
+  partie_id    INTEGER [not null]
+  tour         INTEGER [not null]
+  ascii_state  TEXT
+  checksum     TEXT
+  created_at   TEXT
+  indexes { (partie_id, tour) [unique] }
+}
+
+Ref: plateau_etats.partie_id > parties.partie_id
+
+Table cases {
+  case_id     INTEGER [pk, increment]
+  partie_id   INTEGER [not null]
+  x           INTEGER [not null]
+  y           INTEGER [not null]
+  biome       TEXT
+  decouverte  INTEGER
+  indexes { (partie_id, x, y) [unique] }
+}
+
+Ref: cases.partie_id > parties.partie_id
+
+Table batiments_ref {
+  batiment_id INTEGER [pk, increment]
+  code        TEXT [unique, not null]
+  libelle     TEXT
+  type        TEXT
+  niveau_max  INTEGER
+}
+
+Table batiments_niveaux {
+  bn_id       INTEGER [pk, increment]
+  batiment_id INTEGER [not null]
+  niveau      INTEGER [not null]
+  couts       TEXT
+  prod        TEXT
+  prerequis   TEXT
+  indexes { (batiment_id, niveau) [unique] }
+}
+
+Ref: batiments_niveaux.batiment_id > batiments_ref.batiment_id
+
+Table joueurs_batiments {
+  jb_id         INTEGER [pk, increment]
+  partie_id     INTEGER [not null]
+  joueur_id     INTEGER [not null]
+  case_id       INTEGER [not null]
+  batiment_id   INTEGER [not null]
+  niveau        INTEGER
+  etat          TEXT
+  date_construction TEXT
+  indexes { (partie_id, joueur_id, case_id, batiment_id) [unique] }
+}
+
+Ref: joueurs_batiments.partie_id > parties.partie_id
+Ref: joueurs_batiments.joueur_id > joueurs.joueur_id
+Ref: joueurs_batiments.batiment_id > batiments_ref.batiment_id
+Ref: joueurs_batiments.case_id > cases.case_id
+
+Table population {
+  population_id INTEGER [pk, increment]
+  partie_id     INTEGER [not null]
+  joueur_id     INTEGER [not null]
+  total         INTEGER
+  moral         INTEGER
+  besoins       TEXT
+  specialisations TEXT
+  indexes { (partie_id, joueur_id) [unique] }
+}
+
+Ref: population.partie_id > parties.partie_id
+Ref: population.joueur_id > joueurs.joueur_id
+
+Table recherches_ref {
+  recherche_id INTEGER [pk, increment]
+  code         TEXT [unique, not null]
+  libelle      TEXT
+  prerequis    TEXT
+  effets       TEXT
+}
+
+Table joueurs_recherches {
+  jr_id        INTEGER [pk, increment]
+  partie_id    INTEGER [not null]
+  joueur_id    INTEGER [not null]
+  recherche_id INTEGER [not null]
+  etat         TEXT
+  progression  REAL
+  indexes { (partie_id, joueur_id, recherche_id) [unique] }
+}
+
+Ref: joueurs_recherches.partie_id > parties.partie_id
+Ref: joueurs_recherches.joueur_id > joueurs.joueur_id
+Ref: joueurs_recherches.recherche_id > recherches_ref.recherche_id
+
+Table zones {
+  zone_id      INTEGER [pk, increment]
+  partie_id    INTEGER [not null]
+  coord        TEXT [not null]
+  type         TEXT
+  danger       INTEGER
+  decouvert_par INTEGER
+  indexes { (partie_id, coord) [unique] }
+}
+
+Ref: zones.partie_id > parties.partie_id
+Ref: zones.decouvert_par > joueurs.joueur_id
+
+Table explorations {
+  exploration_id INTEGER [pk, increment]
+  partie_id      INTEGER [not null]
+  joueur_id      INTEGER [not null]
+  zone_id        INTEGER [not null]
+  statut         TEXT
+  resultats      TEXT
+  created_at     TEXT
+  indexes { (partie_id, joueur_id, zone_id) [unique] }
+}
+
+Ref: explorations.partie_id > parties.partie_id
+Ref: explorations.joueur_id > joueurs.joueur_id
+Ref: explorations.zone_id > zones.zone_id
+
+Table evenements_ref {
+  event_id   INTEGER [pk, increment]
+  code       TEXT [unique, not null]
+  libelle    TEXT
+  type       TEXT
+  effets     TEXT
+  triggers   TEXT
+}
+
+Table evenements_instan {
+  eveninst_id INTEGER [pk, increment]
+  partie_id   INTEGER [not null]
+  tour        INTEGER [not null]
+  event_id    INTEGER [not null]
+  cible_type  TEXT
+  cible_id    INTEGER
+  decision    TEXT
+  resolu      INTEGER
+  created_at  TEXT
+  indexes { (partie_id, tour, event_id) [unique] }
+}
+
+Ref: evenements_instan.partie_id > parties.partie_id
+Ref: evenements_instan.event_id > evenements_ref.event_id
+
+Table actions_log {
+  log_id     INTEGER [pk, increment]
+  partie_id  INTEGER [not null]
+  joueur_id  INTEGER
+  type       TEXT
+  payload    TEXT
+  ts         TEXT
+}
+
+Ref: actions_log.partie_id > parties.partie_id
+Ref: actions_log.joueur_id > joueurs.joueur_id
+
+Table sauvegardes {
+  sauvegarde_id INTEGER [pk, increment]
+  partie_id   INTEGER [not null]
+  slot       INTEGER [not null]
+  nom        TEXT
+  tour        INTEGER [not null]
+  snapshot    TEXT [not null]
+  created_at  TEXT
+  temps      INTEGER
+}
+
+Ref: sauvegardes.partie_id > parties.partie_id
+
+Table parametres_globaux {
+  param_id   INTEGER [pk, increment]
+  partie_id   INTEGER [not null]
+  map_width  INTEGER
+  map_height INTEGER
+  world_seed INTEGER
+  max_turns  INTEGER
+  starting_resources TEXT
+  max_joueurs INTEGER
+}
+
+REF: parametres_globaux.partie_id > parties.partie_id
