@@ -1,6 +1,8 @@
-namespace DataAccess.interface_jeu
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface IPlateauEtatRepository
+    internal interface IPlateauEtatRepository
     {
         PlateauEtat? GetById(int plateauId);
         List<PlateauEtat> GetAllByPartie(int partieId);

@@ -1,5 +1,8 @@
-public class RolePermission
+namespace game.Models
 {
-    public string Role {get; set;}
-    public string Permission {get; set;}
+    internal class RolePermission
+    {
+        public string Role {get; set;}
+        public string Permission {get; set;}
+    }
 }

@@ -1,6 +1,8 @@
-namespace DataAccess.interface_jeu
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface IEvenementInstanRepository
+    internal interface IEvenementInstanRepository
     {
         EvenementInstan? GetById(int eveninstId);
         List<EvenementInstan> GetAllByPartie(int partieId);

@@ -1,6 +1,8 @@
-namespace DataAccess.interface_jeu
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface IEvenementRefRepository
+    internal interface IEvenementRefRepository
     {
         EvenementRef? GetById(int eventId);
         EvenementRef? GetByCode(string code);

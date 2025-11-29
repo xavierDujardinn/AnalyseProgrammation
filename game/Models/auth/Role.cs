@@ -1,4 +1,8 @@
-public class Role
+
+namespace game.Models 
 {
-    public string RoleName {get; set;}
+    internal class Role
+    {
+        public string RoleName { get; set; }
+    }
 }

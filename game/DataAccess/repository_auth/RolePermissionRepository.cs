@@ -1,10 +1,9 @@
+using game.Models;
 using System.Data.SQLite;
-using DataAccess.Common;
-using DataAccess.interfaces_auth;
 
-namespace DataAccess.repository_auth
+namespace game.DataAccess
 {
-    public class RolePermissionRepository : IRolePermissionRepository
+    internal class RolePermissionRepository : IRolePermissionRepository
     {
         private readonly SQLiteConnection? _testConnection;
 

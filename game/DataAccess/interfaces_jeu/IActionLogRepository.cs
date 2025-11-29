@@ -1,6 +1,8 @@
-namespace DataAccess.interface_jeu
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface IActionLogRepository
+    internal interface IActionLogRepository
     {
         ActionLog? GetById(int logId);
         List<ActionLog> GetAllByPartie(int partieId);

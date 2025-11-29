@@ -1,8 +1,8 @@
 using System.Data.SQLite;
 
-namespace DataAccess.Common
+namespace game.DataAccess
 {
-    public static class SQLauth
+    internal static class SQLauth
     {
         public static SQLiteConnection GetConnection(SQLiteConnection? testConnection)
         {

@@ -1,10 +1,9 @@
 using System.Data.SQLite;
-using DataAccess.Common;
-using DataAccess.interface_jeu;
+using game.Models;
 
-namespace DataAccess.repository_jeu
+namespace game.DataAccess
 {
-    public class PartieRepository : IPartieRepository
+    internal class PartieRepository : IPartieRepository
     {
         private readonly SQLiteConnection? _testConnection;
 

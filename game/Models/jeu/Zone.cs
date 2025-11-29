@@ -1,9 +1,12 @@
-public class Zone
+namespace game.Models
 {
-    public int ZoneId {get; set;}
-    public int PartieId {get; set;}
-    public string Coord {get; set;}
-    public string? Type {get; set;}
-    public int? Danger {get; set;}
-    public int? DecouvertPar {get; set;}
+    internal class Zone
+    {
+        public int ZoneId { get; set; }
+        public int PartieId { get; set; }
+        public string Coord { get; set; }
+        public string? Type { get; set; }
+        public int? Danger { get; set; }
+        public int? DecouvertPar { get; set; }
+    }
 }

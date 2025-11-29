@@ -1,6 +1,8 @@
-namespace DataAccess.interface_jeu
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface IBatimentRefRepository
+    internal interface IBatimentRefRepository
     {
         BatimentRef? GetById(int batimentId);
         BatimentRef? GetByCode(string code);

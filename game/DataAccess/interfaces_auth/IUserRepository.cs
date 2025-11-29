@@ -1,6 +1,8 @@
-namespace DataAccess.interfaces_auth
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface IUserRepository
+    internal interface IUserRepository
     {
         User? GetByUsername(string username);
         List<User> GetAllByRole(string roleName);

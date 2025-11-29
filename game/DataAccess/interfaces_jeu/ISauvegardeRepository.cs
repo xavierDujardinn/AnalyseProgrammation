@@ -1,6 +1,8 @@
-namespace DataAccess.interface_jeu
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface ISauvegardeRepository
+    internal interface ISauvegardeRepository
     {
         Sauvegarde? GetById(int sauvegardeId);
         List<Sauvegarde> GetAllByPartie(int partieId);

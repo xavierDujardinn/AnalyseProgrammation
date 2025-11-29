@@ -1,10 +1,9 @@
 using System.Data.SQLite;
-using DataAccess.Common;
-using DataAccess.interface_jeu;
+using game.Models;
 
-namespace DataAccess.repository_jeu
+namespace game.DataAccess
 {
-    public class EvenementInstanRepository : IEvenementInstanRepository
+    internal class EvenementInstanRepository : IEvenementInstanRepository
     {
         private readonly SQLiteConnection? _testConnection;
 

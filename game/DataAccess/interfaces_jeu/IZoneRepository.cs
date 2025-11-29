@@ -1,6 +1,8 @@
-namespace DataAccess.interface_jeu
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface IZoneRepository
+    internal interface IZoneRepository
     {
         Zone? GetById(int zoneId);
         Zone? GetByCoord(int partieId, string coord);

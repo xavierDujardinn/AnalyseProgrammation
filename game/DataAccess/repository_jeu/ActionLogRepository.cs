@@ -1,10 +1,9 @@
+using game.Models;
 using System.Data.SQLite;
-using DataAccess.Common;
-using DataAccess.interface_jeu;
 
-namespace DataAccess.repository_jeu
+namespace game.DataAccess
 {
-    public class ActionLogRepository : IActionLogRepository
+    internal class ActionLogRepository : IActionLogRepository
     {
         private readonly SQLiteConnection? _testConnection;
 

@@ -1,6 +1,8 @@
-namespace DataAccess.interface_jeu
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface IRechercheRefRepository
+    internal interface IRechercheRefRepository
     {
         RechercheRef? GetById(int rechercheId);
         RechercheRef? GetByCode(string code);

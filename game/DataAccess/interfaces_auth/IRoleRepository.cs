@@ -1,6 +1,8 @@
-namespace DataAccess.interfaces_auth
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface IRoleRepository
+    internal interface IRoleRepository
     {
         Role? GetByName (string RoleName);
         List<Role> GetAll();

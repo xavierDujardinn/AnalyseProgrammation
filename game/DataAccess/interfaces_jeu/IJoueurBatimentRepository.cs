@@ -1,6 +1,8 @@
-namespace DataAccess.interface_jeu
+using game.Models;
+
+namespace game.DataAccess
 {
-    public interface IJoueurBatimentRepository
+    internal interface IJoueurBatimentRepository
     {
         JoueurBatiment? Get(int jbId);
         List <JoueurBatiment> GetAllByJoueur(int joueurId, int partieId);
